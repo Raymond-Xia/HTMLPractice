@@ -1,0 +1,35 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    display: inline;
+    padding: 0px;
+    margin: 0px;
+    background-color: gold;
+    font-size: 48px;
+    font-family: 'Comic Sans MS';
+}
+
+li a {
+    color: white;
+    text-align: center;
+    padding: 0px 26px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: rgba(143, 135, 24, 0.493);
+}
+
+h1 {
+    margin: 0px;
+}
+
+div {
+    margin-left: auto;
+    margin-right: auto;
+}
