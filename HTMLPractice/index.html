@@ -6,9 +6,9 @@
     </head>
     
     <body background="jeff.jpg">
-        <div style="background-color:blue; width:900px; padding:10px">
-            <div style="text-align:center; background-color: aqua; margin-bottom: 10px; width:900px">
-                <h1 style="font-family: 'Impact'; font-size: 72px; color: red">Hello World!</h1>
+        <div style="background-color:lime; width:900px; padding:10px; border-radius: 10px">
+            <div style="text-align:center; background-color: red; margin-bottom: 10px; width:900px; padding-bottom: 4px">
+                <h1 style="font-family: 'Impact'; font-size: 72px; color: aqua">Hello World!</h1>
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="coolStuff.html">Cool Stuff</a></li>
@@ -16,11 +16,25 @@
                     <li><a href="about.html">About</a></li>
                 </ul>
             </div>
-            <div style="text-align: center; background-color:rgb(72, 255, 0); width:900px">
-                <p1 style="font-size:64px; color:yellow">oh wow this HTML so crazy bro<br></p1>
-                <div style="background-color:magenta">
-                    <img src="jeffyeet.jpg" style="border-style:solid; border-color:pink" alt="jeffyeet">
+            <div style="text-align: center; background-color:magenta; width:900px; border-radius: 5px; padding-bottom:5px">
+                <p1 style="font-size:64px; color:lime">oh wow this HTML so crazy bro<br></p1>
+                <div style="background-color:blue; border-radius: 5px; width: 200px; padding-top:5px">
+                    <img src="jeffyeet.jpg" style="border-style:solid; border-color:lime" alt="jeffyeet" id="image" onclick="myFunction()">
+                    <script>
+                    function myFunction() {
+                        document.getElementById("image").src = "jeff.jpg";
+                        document.getElementById("image").onclick = myFunction2;
+                    }
+                    function myFunction2() {
+                        document.getElementById("image").src = "jeffyeet.jpg";
+                        document.getElementById("image").onclick = myFunction;
+                    }
+                    </script>
                 </div>
+            </div>
+            <div style = "background-color:cornflowerblue; border-radius:5px; padding:5px; text-align: center">
+                <h2>Hello, here I will be testing various pieces of Javascript!</h2>
+                <p></p>
             </div>
         </div>
             

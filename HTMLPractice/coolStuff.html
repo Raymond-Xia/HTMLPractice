@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body style="background-color:magenta">
+<body style="background-color:lime">
     <div style="text-align:center">
         <h1 style="font-family: 'Impact'; font-size: 72px; color: red; background-color: aqua">Hello World!</p1>
         <ul>
@@ -14,10 +14,37 @@
             <li><a href="about.html">About</a></li>
         </ul>
     </div>
-    <div style="text-align: center; background-color:rgb(72, 255, 0)">
-        <p1 style="font-size:72px; color:yellow">oh wow this HTML so crazy bro<br></p1>
-        <div style="background-color:cyan">
-            <img src="jeffyeet.jpg" style="border-style:solid; border-color:pink">
-        </div>
+    
+    <div style="background-color:cyan; padding-top: 40px" id="background">
+        <canvas id="sun"; style="display:block" onclick = "night()"></canvas>
+        <script>
+            var canvas = document.getElementById("sun");
+            var ctx = canvas.getContext("2d");
+            ctx.fillStyle = "rgb(255,255,0)";
+            ctx.fillRect(60, 20, 80, 80);
+        </script>  
+        <script>
+            function night() {
+                document.getElementById("background").style = "background-color:black; padding-top: 40px";
+                document.getElementById("sun").onclick = day;
+            }
+
+            function day() {
+                document.getElementById("background").style = "background-color:cyan; padding-top: 40px";
+                document.getElementById("sun").onclick = night;
+            }
+        </script>
+        
+        <img src="jeffyeet.jpg" style="border-radius:5px; display:inline; margin-left: 500px">
+        
+        <canvas id="tree" style="display:inline; height:300px; width:300px; margin-left: 160px"></canvas>
+        <script>
+            var canvas = document.getElementById("tree");
+            var ctx = canvas.getContext("2d");
+            ctx.fillStyle = "rgb(0,255,0)";
+            ctx.fillRect(0, 0, 200, 100);
+            ctx.fillStyle = "rgb(200,80,0)";
+            ctx.fillRect(60, 100, 80, 200);
+        </script>        
     </div>
 </body>
