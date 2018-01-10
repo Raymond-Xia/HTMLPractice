@@ -7,7 +7,7 @@
     
     <body background="jeff.jpg">
         <div style="background-color:lime; width:900px; padding:10px; border-radius: 10px">
-            <div style="text-align:center; background-color: red; margin-bottom: 10px; width:900px; padding-bottom: 4px">
+            <div style="text-align:center; background-color: red; margin-bottom: 10px; width:900px; padding-bottom: 4px; border-radius:5px">
                 <h1 style="font-family: 'Impact'; font-size: 72px; color: aqua">Hello World!</h1>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -34,7 +34,75 @@
             </div>
             <div style = "background-color:cornflowerblue; border-radius:5px; padding:5px; text-align: center">
                 <h2>Hello, here I will be testing various pieces of Javascript!</h2>
-                <p></p>
+                <p id = "sec"></p>
+                <script>
+                    var time = new Date();
+                    document.getElementById("sec").innerHTML = time.getSeconds();
+                </script>
+                <p id = "minute"></p>
+                <script>
+                    var time = new Date();
+                    document.getElementById("minute").innerHTML = time.getMinutes();
+                </script>
+                <p id = "hour"></p>
+                <script>
+                    var time = new Date();
+                    document.getElementById("hour").innerHTML = time.getHours();
+                </script>
+                
+                       
+                <canvas id = "clock"></canvas>                
+                <script>
+                    var canvas = document.getElementById("clock");
+                    if (canvas.getContext) {
+                        var ctx = canvas.getContext("2d");
+                       
+                        ctx.beginPath();
+                        ctx.arc(150, 70, 69, 0, Math.PI * 2, true); // Outer circle
+                        ctx.moveTo(150, 70);
+                        ctx.arc(150, 70, 68, (2*Math.PI)*(time.getSeconds()/60)-Math.PI/2, (2*Math.PI)*(time.getSeconds()/60)-Math.PI/2, true);
+                        ctx.moveTo(150, 70);
+                        ctx.arc(150, 70, 60, (2*Math.PI)*(time.getMinutes()/60)-Math.PI/2, (2*Math.PI)*(time.getMinutes()/60)-Math.PI/2, true);
+                        ctx.moveTo(150, 70);
+                        ctx.arc(150, 70, 40, (2*Math.PI)*((time.getHours()*60+time.getMinutes())/720)-Math.PI/2, (2*Math.PI)*((time.getHours()*60+time.getMinutes())/720)-Math.PI/2, true);
+                        ctx.stroke();
+                    }
+                </script>
+                <script>
+                    var second = time.getSeconds();
+                    var minute = time.getMinutes();
+                    var hour = time.getHours();
+                    var tick = setInterval(timer, 1000);
+                    
+                    function clear() {
+                        var canvas = document.getElementById("clock");
+                        var ctx = canvas.getContext("2d");
+                        ctx.clearRect(0, 0, 500, 500);
+                    }
+
+                    function timer() {
+                        clear();
+                        second++; 
+                        if (second%60 == 0){
+                            minute++;
+                        }
+                        var canvas = document.getElementById("clock");
+                        if (canvas.getContext) {
+                            var ctx = canvas.getContext("2d");
+                            ctx.beginPath();
+                            ctx.arc(150, 70, 69, 0, Math.PI * 2, true); // Outer circle
+                            ctx.moveTo(150, 70);
+                            ctx.arc(150, 70, 68, (2*Math.PI)*(second/60)-Math.PI/2, (2*Math.PI)*(second/60)-Math.PI/2, true);
+                            ctx.moveTo(150, 70);
+                            ctx.arc(150, 70, 60, (2*Math.PI)*(minute/60)-Math.PI/2, (2*Math.PI)*(minute/60)-Math.PI/2, true);
+                            ctx.moveTo(150, 70);
+                            ctx.arc(150, 70, 40, (2*Math.PI)*((hour*60+minute)/720)-Math.PI/2, (2*Math.PI)*((hour*60+minute)/720)-Math.PI/2, true);
+                            ctx.stroke();
+                        }      
+                                         
+                    }     
+                    
+                </script>    
             </div>
         </div>
             
